@@ -24,7 +24,7 @@ pipeline {
            steps {
                sh 'docker build -t auliaarifin/nodejsgoof:0.1 .'
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-               sh 'docker push auliaarifin/nodejsfoog:0.1'
+               sh 'docker push auliaarifin/nodejsgoof:0.1'
            }
         }
         stage('Deploy Docker Image'){
