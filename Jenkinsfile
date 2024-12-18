@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
    agent none 
    environment {
        DOCKERHUB_CREDENTIALS = credentials('DockerLogin')
@@ -9,7 +9,7 @@ pipeline{
                docker {
                    image 'node:lts-buster-slim'
                }
-           }
+           }	
            steps {
                sh 'npm install'
            }
@@ -24,7 +24,7 @@ pipeline{
            steps {
                sh 'docker build -t auliaarifin/nodejsgoof:0.1 .'
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-               sh 'push auliaarifin/nodejsfoog:0.1'
+               sh 'docker push auliaarifin/nodejsfoog:0.1'
            }
         }
         stage('Deploy Docker Image'){
