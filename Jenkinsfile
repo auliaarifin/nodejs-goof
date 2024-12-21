@@ -40,7 +40,7 @@ pipeline {
                    sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker pull auliaarifin/nodejsgoof:0.1'
                    sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker rm --force mongodb'
                    sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker run --detach --name mongodb -p 27017:27017 mongo:3'
-                   sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker rm --force nodejsgoof'
+                   //sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker rm --force nodejsgoof'
                    sh 'ssh -i ${keyfile} -o StrictHostKeyChecking=no osboxes@10.10.10.10 docker run -it --detach -p 3001:3001 nodejsgoof --network host auliaarifin/nodejsgoof:0.1'
                } 
             }
